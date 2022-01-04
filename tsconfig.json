@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "declaration": true,
+    "outDir": "dist",
+    "strict": true,
+    "sourceMap": true,
+    "lib": [
+      "dom",
+      "es5",
+      "es6",
+      "es2015.promise"
+    ],
+    "baseUrl": "./",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "forceConsistentCasingInFileNames": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitOverride": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "test/*.test.ts"]
+}

@@ -1,0 +1,5 @@
+{
+  "moduleFileExtensions": ["ts", "js"],
+  "preset": "ts-jest/presets/default-esm",
+  "testMatch": ["<rootDir>/test/**/*.(spec|test).{ts,tsx,js,jsx}"]
+}

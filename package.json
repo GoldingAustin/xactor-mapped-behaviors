@@ -1,0 +1,64 @@
+{
+  "name": "xactor-mapped-behaviors",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Declarative mapping of behaviors for xactor",
+  "author": {
+    "name": "Austin Golding",
+    "email": "austin.golding.dev@icloud.com"
+  },
+  "keywords": [
+    "xactor",
+    "actor model",
+    "xstate"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GoldingAustin/xactor-mapped-behaviors"
+  },
+  "source": "src/index.ts",
+  "module": "dist/index.modern.module.js",
+  "unpkg": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "microbundle watch",
+    "build": "microbundle",
+    "test": "jest --config=jest.json",
+    "lint": "eslint src",
+    "format": "prettier --write './**/*.ts'"
+  },
+  "peerDependencies": {
+    "xactor": "^0.3"
+  },
+  "peerDependenciesMeta": {
+    "xactor": {
+      "optional": false
+    }
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
+    "eslint": "^8.6.0",
+    "jest": "^27.4.5",
+    "microbundle": "^0.14.2",
+    "prettier": "^2.5.1",
+    "ts-jest": "^27.1.2",
+    "typescript": "^4.5.4",
+    "xactor": "^0.3.1"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "printWidth": 120,
+    "tabWidth": 2,
+    "semi": true,
+    "endOfLine": "lf"
+  },
+  "packageManager": "yarn@3.1.1"
+}
