@@ -1,5 +1,7 @@
 ## xactor mapped behaviors
 
+[![NPM](https://nodei.co/npm/xactor-mapped-behaviors.png)](https://www.npmjs.com/package/xactor-mapped-behaviors)
+
 Declarative mapping of event types to behaviors.
 
 ```typescript
