@@ -66,10 +66,30 @@ describe('getSnapshot() method', () => {
         [0]: (state) => {
           expect(state).toEqual(42);
           done();
+          return state;
         },
       },
       42
     );
     createSystem(behavior, 'test');
+  });
+
+  it('Return undefined or 0 should set state to undefined or 0', () => {
+    const behavior = mappedBehavior(
+      {
+        update: () => {
+          return undefined;
+        },
+        reset: () => {
+          return 0;
+        },
+      },
+      42 as number | undefined
+    );
+    const system = createSystem(behavior, 'test');
+    system.send({ type: 'update' });
+    expect(system.getSnapshot()).toEqual(undefined);
+    system.send({ type: 'reset' });
+    expect(system.getSnapshot()).toEqual(0);
   });
 });

@@ -32,7 +32,7 @@ export type BehaviorMap<
   ? CallbackEventTypes<Event, TState>
   : Event extends EventObjects
   ? {
-      [E in Event['type']]: (state: TState, msg: EventByName<E, Event>, ctx: TContext) => TState | void;
+      [E in Event['type']]: (state: TState, msg: EventByName<E, Event>, ctx: TContext) => TState;
     }
   : never;
 
@@ -43,7 +43,7 @@ export type BehaviorEvent<
   Message extends EventObjects = any,
   Ctx = ActorContext<never>,
   Keys extends PropertyKey = PropertyKey
-> = { [key in Keys]: (state: State, message: Message, ctx: Ctx) => State | void };
+> = { [key in Keys]: (state: State, message: Message, ctx: Ctx) => State };
 
 /**
  * Returns type checked mapping:

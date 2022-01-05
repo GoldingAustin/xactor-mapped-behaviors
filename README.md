@@ -33,7 +33,10 @@ const behavior = mappedBehavior(
         update: (state, msg: { value: number }, ctx) => msg.value,
         reset: () => 0,
         default: (state, msg, ctx) => state, // default behavior if no match
-        [ActorSignalType.Start]: () => console.log("Actor start"), // Handle actor signal types
+        [ActorSignalType.Start]: (state) => {
+            console.log("Actor start");
+            return state;
+        }, // Handle actor signal types
     },
     0
 );

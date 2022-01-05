@@ -8,7 +8,5 @@ export const getMappedValue = <Mapping extends BehaviorEvent<TState>, TState, Me
   state: TState,
   key: keyof Mapping | PropertyKey
 ) => {
-  const rtn = mapping[key as keyof Mapping](state, message, context);
-  if (rtn !== void 0) return rtn;
-  else return state;
+  return mapping[key as keyof Mapping](state, message, context);
 };

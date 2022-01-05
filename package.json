@@ -1,6 +1,6 @@
 {
   "name": "xactor-mapped-behaviors",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "description": "Declarative mapping of behaviors for xactor",
   "author": {
