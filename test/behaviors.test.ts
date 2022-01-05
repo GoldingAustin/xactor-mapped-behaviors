@@ -48,6 +48,7 @@ describe('promise behavior', () => {
           }, 'promise');
           return 'pending';
         },
+        default: (state) => state,
       },
       'idle'
     );
@@ -56,4 +57,3 @@ describe('promise behavior', () => {
     system.send({ type: 'fetch' });
   });
 });
-

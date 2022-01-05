@@ -4,15 +4,36 @@
 
 Declarative mapping of event types to behaviors.
 
+Installation: 
+- yarn: ``` yarn add xactor-mapped-behaviors ``` 
+- npm: ``` npm i xactor-mapped-behaviors ```
+- yarn: ``` pnpm add xactor-mapped-behaviors ```
+
+This library exports two functions: `mappedBehavior` and `mappedSetupBehavior` which correspond to xactors `createBehavior` and `createSetupBehavior` respectively.
+
+The types of both `mapped` behaviors match xactors except for the reducer argument. In `xactor-mapped-behaviors`, instead of a reducer, a keyed object is used. 
+Each key corresponds to:
+- `string` which is any event type you specify, 
+- `default` which is called when no other event type matches
+- `ActorSignalType` from xactor. You can either explicitly specify the event types or the event types will be inferred. See below for examples.
+
+Notes:
+
+- If no `default` is specified, the behavior will return the current state if no other event type matches.
+
+Examples:
+
 ```typescript
 import {mappedBehavior} from "xactor-mapped-behaviors";
+import {ActorSignalType} from "xactor/dist/types";
 // Behaviors are a keyed object of reducer events, similar to transition event assigns in xstate.
 // Each event takes the state, event message and context as arguments and returns the next state.
 const behavior = mappedBehavior(
     {
         update: (state, msg: { value: number }, ctx) => msg.value,
         reset: () => 0,
-        default: (state, msg, ctx) => state,
+        default: (state, msg, ctx) => state, // default behavior if no match
+        [ActorSignalType.Start]: () => console.log("Actor start"), // Handle actor signal types
     },
     0
 );

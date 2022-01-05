@@ -28,7 +28,6 @@
 import { mappedBehavior } from '../src';
 import { createSystem } from 'xactor';
 
-
 describe('getSnapshot() method', () => {
   it('should return a snapshot of the most recently emitted state', () => {
     const behavior = mappedBehavior(
@@ -39,8 +38,7 @@ describe('getSnapshot() method', () => {
       42
     );
     const system = createSystem(behavior, 'test');
-    system.send({ type: 'default' });
-    expect(system.getSnapshot()).toEqual(43);
+    expect(system.getSnapshot()).toEqual(42);
   });
 
   it('should keep snapshot up to date after state changes', () => {
@@ -59,5 +57,19 @@ describe('getSnapshot() method', () => {
     setTimeout(() => {
       expect(system.getSnapshot()).toEqual(55);
     });
+  });
+
+  it('Start should be called', (done) => {
+    const behavior = mappedBehavior(
+      {
+        update: (state, msg: { value: number }) => msg.value,
+        [0]: (state) => {
+          expect(state).toEqual(42);
+          done();
+        },
+      },
+      42
+    );
+    createSystem(behavior, 'test');
   });
 });

@@ -2,10 +2,11 @@ import type { BehaviorEvent, BehaviorMap, EventObject, ReturnEventUnion } from '
 import type { ActorContext, TaggedState } from 'xactor/dist/types';
 import { createSetupBehavior, isSignal } from 'xactor';
 import { getMappedValue } from './util';
+import { DefaultEventObjects } from './types';
 
-export function setupMappedBehavior<Mapping extends EventObject | BehaviorEvent<TState>, TState>(
+export function mappedSetupBehavior<Mapping extends EventObject | BehaviorEvent<TState>, TState>(
   setup: (initialState: TState, ctx: ActorContext<ReturnEventUnion<Mapping, TState>>) => TState | TaggedState<TState>,
-  mapping: BehaviorMap<Mapping, TState>,
+  mapping: BehaviorMap<Mapping | DefaultEventObjects, TState>,
   state: TState
 ) {
   return createSetupBehavior<ReturnEventUnion<Mapping, TState>, TState>(
