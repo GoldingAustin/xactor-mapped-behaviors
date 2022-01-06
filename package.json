@@ -1,7 +1,8 @@
 {
   "name": "xactor-mapped-behaviors",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "license": "MIT",
+  "sideEffects": false,
   "description": "Declarative mapping of behaviors for xactor",
   "author": {
     "name": "Austin Golding",
@@ -27,7 +28,7 @@
   ],
   "scripts": {
     "start": "microbundle watch",
-    "build": "microbundle",
+    "build": "microbundle --compress",
     "test": "jest --config=jest.json",
     "lint": "eslint src",
     "format": "prettier --write './**/*.ts'"

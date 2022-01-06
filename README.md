@@ -11,7 +11,7 @@ Installation:
 - npm: ``` npm i xactor-mapped-behaviors ```
 - yarn: ``` pnpm add xactor-mapped-behaviors ```
 
-Current size: [~336B](https://bundlephobia.com/package/xactor-mapped-behaviors@1.1.0)
+Current size: [~336B](https://bundlephobia.com/package/xactor-mapped-behaviors@1.1.2)
 
 Required peer dependencies: [xactor](https://www.npmjs.com/package/xactor)
 

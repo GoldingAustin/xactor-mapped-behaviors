@@ -1,7 +1,7 @@
-import { BehaviorEvent, EventObject } from './types';
-import { ActorContext } from 'xactor/dist/types';
+import type { BehaviorMapping, EventObject } from './types';
+import type { ActorContext } from 'xactor/dist/types';
 
-export const getMappedValue = <Mapping extends BehaviorEvent<State>, State, Message = unknown>(
+export const getMappedValue = <Mapping extends BehaviorMapping<State>, State, Message = unknown>(
   mapping: Mapping,
   message: Message,
   context: ActorContext<EventObject>,
